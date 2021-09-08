@@ -22,8 +22,8 @@
 -> 사람이 이해하는 언어를 컴퓨터가 이해할 수 있는 언어로 바꿔주는 과정.
 
 8.java의 자료형 9개는?
-->    boolean, char, short, int, long, float, double, String
- 크기: 1byte     2     1     4     8      4       8   
+->    boolean, char, byte, short, int, long, float, double
+ 크기: 1byte     2     1      1    4     8     4       8   
 9.int num; 을 메모리로 설명해 보시오.
 -> int타입의 4byte만큼을 이 변수를 위해 메모리 공간을 할당한다는 것이다. 
     즉, num변수의 메모리 공간이 4byte만큼 확보된다. (정수가 들어감.)

@@ -1,0 +1,193 @@
+아래의 함수를 만들고, 해당 함수를 호출하여 확인 하시오.
+
+함수이름: getGrade
+1.매개변수: double type 1개
+리턴타입: 수 우 미 양 가 중 하나의 char 타입
+            public static void main(String[] args) {
+		System.out.println(getGrade(91.4));		
+		
+	}
+	
+	public static char getGrade(double n) {
+		char grade;
+		
+		if(n>=90) grade = '수';
+		else if(n>=80) grade = '우';
+		else if(n>=70) grade = '미';
+		else if(n>=60) grade = '양';
+		else grade = '가';
+		
+		
+		return grade;
+	}
+	
+
+
+2.매개변수 하나를 받아 
+원의 넓이를 리턴하는 함수를 작성하시오.
+
+            public static void main(String[] args) {
+		double Area = getCircleArea(5);
+		
+		System.out.println(Area);
+		
+	}
+	
+	public static double getCircleArea(int n) {
+		double Area = n * n * 3.14;
+		
+		return Area;
+	}
+
+
+
+
+3.매개변수 두 개를 받아, 사각형의 넓이를 리턴하는 함수를 
+작성하시오.
+
+            public static void main(String[] args) {
+		int Area = quadrangleArea(5, 7);
+		
+		System.out.println(Area);
+		
+	}
+	
+	public static int quadrangleArea(int n1, int n2) {
+		int Area = n1 * n2;
+		
+		return Area;
+	}
+
+
+
+4.매개변수 1000을 넣으면 1부터 1000 까지의 합 리턴
+
+            public static int totalSum(int n) {
+		int sum = 0;
+		
+		for(int i=1; i<=n; i++) {
+			sum += i;
+		}
+		
+		
+		return sum;
+	}
+
+
+
+
+5.매개변수 int 로 3개 받아서 최대값 리턴
+
+            public static int threeMax(int n1, int n2, int n3) {
+		int max = n1;
+		
+		if(max < n2) max = n2;
+		if(max < n3) max = n3;
+		
+		
+		
+		return max;
+	}
+
+
+
+6. 아래가 의도하지 않은 결과를 나타내는 이유를 설명하시오.
+
+
+char ch = '가';
+System.out.println(ch + '\n'); //44042 라는 int 정수값 출력됨
+
+// 의도를 표현하기 위한 방법
+System.out.println(ch + "\n"); //가 출력됨
+
+-> '\n'은 문자로 취급됨으로 ch + '\n'은 문자 + 문자이다.
+    문자 + 문자는 결과값이 정수형으로 나오기 때문에 44042가 나온다.
+    "\n"문자 열로 취급됨으로 문자 + 문자 연산이 일어나지 않는다.
+
+7. 변수의 scope 는?
+
+- 변수는 변수가 선언된 시점부터 그 중괄호 블럭 안에서 사용 가능하다.
+- 클래스 밖에서 변수 선언은 불가능함
+- 같은 영역 내에서 동일 이름의 변수 선언 불가
+
+
+8. 펙토리얼을 구하는 재귀 함수를 만드시오.
+            public static int fX(int n) {
+		
+		if(n == 1) return n;
+		
+		return n * fX(n-1);
+	}
+
+
+10. 객체란 무엇인가? 예습
+-> 객체란 물리적으로 존재하거나 추상적으로 생각할 수 있는 것 중에서 자신의 속성을
+    가지고 있고 다른것과 식별 가능한 것을 말합니다.
+
+12. 클래스명은 자유롭게 작성하시면 되고
+다음과 같은 함수를 만들겁니다.
+
+세 자리의 자연수를 곱하는 과정을 보여주는 함수 "myMultiply"
+
+세 자리의 자연수의 곱은 다음과 같이 이루어집니다. 출력값은 계산과정들을 출력합니다.
+     352
+×  373
+---------
+   1056 ---일의자리 출력
+  2464  ---십의자리 출력
+1056   ---백의자리 출력
+----------
+131296 ---최종결과 출력
+
+
+호출방식은 다음과 같습니다.
+myMultiply(264,317);
+
+실행결과는 다음과 같습니다.
+1848
+264
+792
+83688
+
+
+            public static void myMultiply(int n1, int n2) {
+		int rest;
+		
+		rest = n2 % 100 % 10;
+		System.out.println(n1 * rest);
+		
+		rest = n2 % 100 / 10;
+		System.out.println(n1 * rest);
+		
+		rest = n2 / 100;
+		System.out.println(n1 * rest);
+		
+		System.out.println(n1*n2);
+		
+		return ;
+	}
+
+
+13.아래의 함수를 만드시오.
+
+파라미터로 1000을 넣으면 1부터 1000까지의
+숫자중 5의 배수이자 7의 배수인 수를 카운트 하여 리턴
+
+            public static int fX(int n) {
+		int count=0;
+		
+		for(int i=1; i<=n; i++) {
+			if(i%5==0 && i%7==0) count++;
+			
+		}
+		
+		
+		return count;
+	}
+
+
+
+
+
+
+

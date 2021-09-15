@@ -1,0 +1,247 @@
+1.아래의 사칙연산 계산기를 프로그래밍하시오.
+
+출력========================== 
+
+첫 번째 숫자를 입력하세요.
+90
+연산 기호를 입력하세요.
++
+두 번째 숫자를 입력하세요.
+65
+155
+종료하시겠습니까? 종료:y 계속:n
+n
+첫 번째 숫자를 입력하세요.
+90
+연산 기호를 입력하세요.
+-
+두 번째 숫자를 입력하세요.
+56
+34
+종료하시겠습니까? 종료:y 계속:n
+y
+종료입니다.
+
+
+import java.util.Scanner;
+
+public class Test01 {
+	public static void main(String args[]) {
+		Caculator cl = new Caculator();
+		Scanner sc = new Scanner(System.in);
+		int n1, n2;
+		char ch, sw;
+		
+		while(true) {
+			System.out.println("첫 번째 숫자를 입력하세요");
+			n1 = sc.nextInt();			
+			
+			System.out.println("연산 기호를 입력하세요");
+			ch = sc.next().charAt(0);
+			
+			System.out.println("두 번째 숫자를 입력하세요");
+			n2 = sc.nextInt();
+			
+			cl.setCaculator(n1, n2, ch);
+			System.out.println(cl.caculation());
+			
+			System.out.println("종료하시겠습니까?(y/n)");
+		    sw = sc.next().charAt(0);
+		    if(sw == 'y') {
+		    	System.out.println("종료입니다.");
+		        break;
+		    }
+			
+		}
+		
+		
+	}
+}
+
+public class Caculator {
+	private int n1, n2;
+	private char ch;
+	
+	public void setCaculator(int n1, int n2, char ch){
+		this.n1 = n1;
+		this.n2 = n2;
+		this.ch = ch;
+	}
+	
+	public int caculation() {
+		int result = 0;
+		
+		if(ch == '+') result = n1 + n2;
+		else if(ch == '-') result = n1 - n2;
+		else if(ch == '*') result = n1 * n2;
+		else if(ch == '/') result = n1 / n2;
+		
+		return result;
+	}
+	
+}
+
+
+
+
+2. 랜덤 숫자 맞추기 게임을 짜시오.
+
+남은 횟수 : 10회 에서 시작
+
+1-100사이의 숫자 중에 숫자 맞추기
+
+//아래의 랜덤함수를 사용 할것
+(int)(Math.random()*100)+1); 
+
+==========================
+1~100 사이의 숫자를 입력하세요.
+남은 횟수 : 10
+50
+UP
+남은 횟수 : 9
+65
+UP
+남은 횟수 : 8
+80
+DOWN
+남은 횟수 : 7
+75
+DOWN
+남은 횟수 : 6
+73
+DOWN
+남은 횟수 : 5
+70
+UP
+남은 횟수 : 4
+71
+축하합니다. 7회 만에 맞추셨습니다.
+프로그램을 종료합니다.
+
+import java.util.Scanner;
+
+public class Test01 {
+	public static void main(String args[]) {
+		Scanner sc = new Scanner(System.in);
+		Random rd = new Random();
+		boolean B = true;
+		int num;
+		
+		System.out.println("1~100사이의 숫자를 입력하세요.");		
+		System.out.println("남은 횟수: " + rd.D_count());
+		while(B) {
+			num = sc.nextInt();
+			B = rd.upDown(num);
+			
+		}
+		
+		
+		
+	}
+}
+
+public class Random {
+	private int count = 1, D_count = 10;
+	private int num = (int)(Math.random()*100+1);
+	
+	public int D_count() {
+		return D_count;
+	}
+	
+	public boolean upDown(int n) {
+		if(D_count == 0) {
+			System.out.println("10회 초과로 인한 종료");
+			return false;
+		}
+		
+		if(n == num) {
+			System.out.println("축하합니다." + count + "회 만에 맞추셨습니다.");
+			System.out.println("프로그램을 종료합니다.");
+			return false;
+		}
+		else if(n > num) {
+			System.out.println("DOWN");
+			System.out.println("남은 횟수: " + --D_count);
+		}
+		else {
+			System.out.println("UP");
+			System.out.println("남은 횟수: " + --D_count);
+		}
+	    count++;
+	    
+		return true;
+	}
+	
+	
+}
+
+
+
+3 . 아래와 같이 출력이 나오도록 프로그래밍 하시오.
+Player 객체를 완성하시오.
+
+main(){
+
+Player p1 = new Player()
+Player p2 = new Player()
+Player p3 = new Player()
+Player p4 = new Player()
+
+System.out.println(Player.instance);
+
+}
+
+출력:
+4
+
+
+public class Test01 {
+	public static void main(String args[]) {
+		Player p1 = new Player();
+		Player p2 = new Player();
+		Player p3 = new Player();
+		Player p4 = new Player();
+		
+		System.out.println(Player.instance);
+		
+	}
+}
+
+public class Player {
+	static int instance = 0;
+	
+	Player(){
+		instance++;
+	}
+	
+}
+
+
+4. static 변수의 다른 용어 3가지를 말해 보시오.
+-> 정적 변수, 클래스 변수, 공용 변수
+
+5. static 변수의 접근 방법은?
+-> static 변수가 선언된 클래스 내에서는 이름만으로 직접 접근 가능.
+    private으로 선언되지 않으면 클래스 외부에서도 접근 가능.
+    접근 수준 지시자가 허용하는 범위에서 접근 가능.
+    클래스 또는 인스턴스의 이름을 통해 접근.
+
+6.. 클래스(static) 변수의 활용의 예를 드시오.
+-> 인스턴스 별로 가지고 있을 필요가 없는 변수
+    - 값의 참조가 목적인 변수
+    - 값의 공유가 목적인 변수    
+
+7. 스태틱 함수에 인스턴스 라면이 올수 없는 이유는?
+-> static함수 메모리는 바로 생성되지만 인스턴스 변수는 객체가 생성(~.~ = new~;)되어야 해서..
+    => static이 메모리에 먼저 올라감,=> 메모리 생성 시간차.
+    지역 변수는 함수안에 들어가는 변수
+
+8. 인스턴스 함수 안에 static 변수와 함수가 올 수 있는 이유는?
+-> 인스턴스 함수 안에 static 변수와 함수가 올 수 있는 이유는?
+    인스턴스 함수를 생성할 때 이미 static 함수와 변수가 메모리에 올라가 있기 때문에 올 수 있다.
+
+
+
+
+
+

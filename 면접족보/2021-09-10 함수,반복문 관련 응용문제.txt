@@ -1,0 +1,79 @@
+1. 아래 함수를 작성하시오.
+
+ - 클래스명은 자유
+ - 두 수 num1, num2 를 매개변수로 받아 num1이 num2의 배수인지를 판별하는 함수 "divideNumber"
+ - 단, "%" 및 "/" 연산자의 사용을 금지. 나눗셈 관련 자바 제공함수 일절 사용금지.
+
+           public static void main(String args[]) {
+		divideNumber(72, 7);
+		
+		
+	}
+	
+	public static void divideNumber(int n1, int n2) {
+		int num = n1;
+		
+		while(true) {
+			n1 = n1 - n2;
+			if(n1 == 0) {
+				System.out.println(num + ": " + n2 + "의 배수 입니다.");
+				return;
+			}
+			else if(n1<0){
+				System.out.println(num + ": " + n2 + "의 배수가 아닙니다.");
+				return;
+			}
+			
+		}
+		
+		
+	}
+
+
+
+2. 아래 프로그램을 작성하시오. (함수로 만들 의무X)
+
+ - 1부터 10000까지의 범위 내에서, 숫자 7을 모두 찾으시오.
+ - 해당 범위 내의 숫자 7을 모두 카운트한 변수의 값을 출력
+ - ex) 7000 : 7이 1개 / 7077 : 7이 3개
+ - ex) 1부터 10까지의 숫자 7은 총 1개 / 1부터 80까지의 숫자 7은 총 18개
+
+7 17 27 ... 67 -> 7이 1개씩, 총 7개
+77 -> 7이 2개
+70~79(77 제외) -> 7이 9개
+ = 18개
+
+
+            public static void main(String args[]) {
+		int i = 0, count = 0;
+		int num;
+		
+		while(i<=10000) {
+			i++;
+			num = i;
+			
+			
+			if(i>=1000) {
+				if(num >= 7000 && num < 8000) count++;
+				num = num % 1000;
+			}
+			
+			if(i>=100) {
+				if(num >= 700 && num < 800) count++;
+				num = num % 100;
+			}
+			
+			if(i>=10) {
+				if(num >= 70 && num < 80) count++;
+				num = num % 10;
+			}
+			
+			if(num == 7) count++;
+				
+		}
+		
+		System.out.println(count);
+		
+	}
+
+

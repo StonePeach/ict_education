@@ -1,0 +1,91 @@
+int[] ar = { 300, 17, 450, 180, 505 } 
+출력형태
+----------------------
+ 300, 17, 450, 180, 505 중에
+가장 큰 수 : _505
+가장 작은 수 : _17
+최대값 + 최소값 = 522 입니다.
+
+잘못 입력하면)
+가장 큰 수 : _505
+가장 작은 수 : _180
+최대값 혹은 최소값을 잘못 입력했습니다.
+300, 17, 450, 180, 505 중에
+가장 큰 수: 
+----------------------
+
+배열의 값 중에 최대값과 최소값을 입력하면 최대값+최소값의 연산값이 출력되는 객체를 생성하세요.
+
+
+public class Test01 {
+	public static void main(String[] args) {
+		MaxMin mm = new MaxMin();
+		int[] ar = { 300, 17, 450, 180, 505 };
+		int sw = 0;
+		
+		while(sw == 0) sw = mm.maxPlusmin(ar);
+		
+	}
+	
+}
+
+
+import java.util.Scanner;
+
+public class MaxMin {
+
+	public int maxPlusmin(int[] ar) {
+		Scanner sc = new Scanner(System.in);
+		int max, min;
+
+		for (int i = 0; i < ar.length; i++) {
+			System.out.print(ar[i]);
+			if (i < ar.length - 1)
+				System.out.print(" ,");
+		}
+		System.out.println("중에");
+		System.out.print("가장 큰 수:_");
+		max = sc.nextInt();
+		System.out.print("가장 작은 수:_");
+		min = sc.nextInt();
+
+		if (max != MaxMin.max(ar)) {
+			System.out.println("최대값을 잘못 입력 했습니다.");
+			return 0;
+		} else if (min != MaxMin.min(ar)) {
+			System.out.println("최소값을 잘못 입력 했습니다.");
+			return 0;
+		}
+
+		System.out.println("최대값 + 최소값 = " + (max + min) + "입니다.");
+
+		return 1;
+	}
+
+	public static int max(int[] ar) {
+		int max;
+
+		max = ar[0];
+		for (int i = 0; i < ar.length; i++) {
+			if (max < ar[i])
+				max = ar[i];
+		}
+
+		return max;
+	}
+
+	public static int min(int[] ar) {
+		int min;
+
+		min = ar[0];
+		for (int i = 0; i < ar.length; i++) {
+			if (min > ar[i])
+				min = ar[i];
+		}
+
+		return min;
+	}
+
+}
+
+

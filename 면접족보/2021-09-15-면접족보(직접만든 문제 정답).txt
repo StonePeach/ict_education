@@ -1,0 +1,73 @@
+import java.util.Scanner;
+
+public class Test01 {
+	public static void main(String args[]) {
+		Gugudan gugudan = new Gugudan();
+		Scanner sc = new Scanner(System.in);
+		int n;
+		String sw;
+		
+	    while(true) {
+	    	System.out.print("\n몇단을 출력 하시겠습니까? : ");
+	    	n = sc.nextInt();
+	    	gugudan.setGugudan(n);
+	    	
+	    	System.out.print("거꾸로 출력 하시겠습니까?(y/n) : ");
+	    	sw = sc.next();
+	    	
+	    	if(sw.equals("y")) gugudan.showReverse();
+	    	else gugudan.showGugudan();	    		
+	    	
+	    	
+	    	System.out.print("계속 하시겠습니까(y/n) : ");
+	    	sw = sc.next();
+	    	if(sw.equals("n")) {
+	    		System.out.println("프로그램 종료");
+	    		break;
+	    	}
+	    }
+		
+	}
+}
+
+
+public class Gugudan {
+	int num;
+	
+	public void setGugudan(int n) {
+		num = n;
+	}
+	
+	public void showGugudan() {
+		System.out.println();
+		for(int j=1; j<=num; j++) {
+			System.out.print("<" + j + ">" + "단\t");
+		}
+		System.out.println();
+		
+		for(int i=1; i<=9; i++) {
+			for(int j=1; j<=num; j++) {
+				System.out.print(j + "*" + i + "=" + i*j + "\t");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	public void showReverse() {
+		System.out.println();
+		for(int j=num; j>=1; j--) {
+			System.out.print("<" + j + ">" + "단\t");
+		}
+		System.out.println();
+		
+		for(int i=1; i<=9; i++) {
+			for(int j=num; j>=1; j--) {
+				System.out.print(j + "*" + i + "=" + i*j + "\t");
+			}
+			System.out.println();
+		}
+		
+	}
+	
+}

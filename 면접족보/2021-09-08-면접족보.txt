@@ -1,0 +1,185 @@
+1.  함수는 어떻게 알아 볼 수 있을까? 함수인지를 어떻게 아는가?
+-> 함수명 뒤에 괄호가 있으면 함수이다.
+
+2. 함수는 어떻게 만들까?
+-> 함수명(괄호){중괄호} //함수 정의
+    함수는 꼭 클래스안에 만들어야 한다. (메인 함수안에는 안된다.)
+
+
+3. 함수는 어떻게 써먹을까?(함수 호출) 
+-> 함수명(괄호);      //함수 호출
+
+
+4.아래를 함수로 만들어라
+printStar(1);
+printStar(2);
+printStar(3);
+
+*
+
+*
+**
+
+*
+**
+***
+
+            public static void printStar(int n) {
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<=i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+	}
+
+
+
+4.아래를 함수로 만들어라
+printStar(5);
+printStar(4);
+printStar(3);
+
+
+*****
+****
+***
+**
+*
+
+****
+***
+**
+*
+
+***
+**
+*
+
+           public static void printStar(int n) {
+		for(int i=n; i>0; i--) {
+			for(int j=0; j<i; j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		
+	}
+
+
+5 아래의 함수를 만들고, 해당 함수를 호출하여 확인 하시오.
+
+함수이름: getGrade( 90 .4)
+
+출력
+90.4 수 입니다.
+
+    public static void getGrade(double n) {
+    	System.out.println("출력\n" + n + "수 입니다.");
+    }
+
+
+
+6. 아래의 함수를 만드시오.
+
+
+printGugudan(5); // 1단 부터 5단 까지 출력
+printGugudan(9); // 1단 부터 9단 까지 출력
+
+    public static void printGugudan(int n) {
+    	for(int i=1; i<=9; i++) {
+    		for(int j=1; j<=n; j++) {
+    			System.out.print(j + "*" + i + "=" + i*j + " ");
+    		}
+    		System.out.println();
+    	}
+    	
+    	
+    }
+
+
+7. 아래의 함수를 만드시오.
+
+printGugudan(1, 100); // 1부터 100까지의 합
+printGugudan(3, 1000); // 3부터 1000까지의 합
+-만약 
+-printGugudan(1000, 3); 처럼 위치가 바뀌어도  3부터 1000까지의 합으로 출력 할것
+
+    public static void printGugudan(int n1, int n2) {
+    	if(n1 > n2) {
+    		int temp = n1;
+    		n1 = n2;
+    		n2 = temp;
+    	}
+    	
+    	int sum = 0;
+    	for(int i=n1; i<=n2; i++) {
+    		sum += i;
+    	}
+    	System.out.println(sum);
+    	
+    }
+
+
+7. 아래의 함수를 만드시오.
+
+getCircleArea(10);   
+출력 - 원의 넓이는 314 입니다.
+
+    public static void getCircleArea(int n) {
+    	double area = n * n * 3.14;
+    	
+    	System.out.println("원의 넓이는" + area + "입니다.");
+    }
+
+
+8. 파라미터 두개를 받아 사각형의 넓이를 구하는 함수를 만드시오. -함수 이름 파라미터 이름 등은 개발자가 정할것
+   public static void quadrangleArea(int n1, int n2) {
+    	int area = n1 * n2;
+    	System.out.println(area);
+    }
+
+
+9. 파라미터 두개를 받아 삼각형의 넓이를 구하는 함수를 만드시오. -함수 이름 파라미터 이름 등은 개발자가 정할것
+   public static void triangleArea(int n1, int n2) {
+    	int area = n1 * n2 / 2;
+    	System.out.println(area);
+    }
+
+
+10.아래의 별을 찍으시오.(함수 안써도 됨)
+     *
+    ***
+   *****
+  *******
+           public static void printStar(int n) {
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n-1-i; j++) {
+				System.out.print(" ");
+			}
+			
+			for(int j=0; j<i*2+1; j++) {
+				System.out.print("*");
+			}
+			
+			
+			System.out.println();
+		}
+		
+	}
+
+
+11.왜 함수를 만들어 사용하는지에 대하여 설명하시오.
+-> 어떠한 문제를 처리하기 위한 방법을 소스코드로 묶어놓고 필요에 따라 호출하여
+    사용하기 위해서 이다.
+
+
+
+
+
+
+
+
+
+

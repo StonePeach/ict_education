@@ -1,0 +1,198 @@
+1. 메소드 오버로딩이란? 
+-> 같은 함수 이름으로 파라미터 타입과 갯수를 달리해서 만드는것
+
+2. 생성자 오버로딩이란?
+->같은 생성자 이름으로 파라미터 타입과 갯수를 달리해서 만드는것
+
+3. 메소드 오버로딩을 적용한 대표적인 함수는?
+-> println
+
+4. this의 용도는?
+-> 1. this 함수 (다른 생성자 호출)
+    2. this . 초기화 
+
+5. this 함수에 대하여 설명하시오.
+-> 다른 생성자 호출해서 사용하는것
+
+6. 스트링 객체를 생성하는 2가지 방법은?
+-> String str1 = "Hello";
+    String str2 = new Strint("Hello");
+
+7. 아래의 결과를 예측하고,이유를 설명하시오.
+
+String str1 = "Simple String"; 
+String str2 = "Simple String";
+
+String str3 = new String("Simple String");
+String str4 = new String("Simple String");
+
+//참조변수의 참조 값 비교
+if(str1 == str2)
+   System.out.println("str1과 str2는 동일 인스턴스 참조");
+else
+   System.out.println("str1과 str2는 다른 인스턴스 참조");
+
+//참조변수의 참조 값 비교
+if(str3 == str4)
+   System.out.println("str3과 str4는 동일 인스턴스 참조");
+else
+   System.out.println("str3과 str4는 다른 인스턴스 참조");
+
+
+결과:  
+-System.out.println("str1과 str2는 동일 인스턴스 참조");
+-System.out.println("str3과 str4는 다른 인스턴스 참조");
+
+-> str1 과 str2 메모리가 올라가서 "Simple String" 메모리를 같은 주소를 받는다.
+    str3 메모리에 "Simple String" 주소와 str4 메모리에 "Simple String" 주소는 다르다.
+    각각 서로 다른 메모리를 만든다.
+
+
+8. imutable 에 대하여 설명하시오.
+-> String (문자열) 객체는 최초에 한 번 생성되면 절대로 그 값이 변하지 않는다.
+    String str = "100"; 에서 주소가 100인데 
+    str = "200"; 을 했다고 주소가 그대로 100이고 값만 200으로 바뀌는게 아니라
+    값 "200"을 가진 문자열 객체가 새로운 주소를 부여받아 생긴다.
+
+
+9. 사용자로부터 받은 문자열(영문으로)에서 자음과 모음 개수를 계산하는 프로그램을 작성하라.
+(연속적이로 종료하시겠습니까 y 할때 까지 계속)
+
+import java.util.Scanner;
+
+public class Test01 {
+	public static void main(String args[]) {
+		CountABC count = new CountABC();
+		Scanner sc = new Scanner(System.in);
+		String str;
+		char sw;
+		
+		while(true) {
+			System.out.print("문자열 입력: ");
+			str = sc.nextLine();
+			count.Count(str);
+			count.getCount();
+			
+			System.out.print("종료 하시겠습니까?(y/n) : ");
+			sw = sc.next().charAt(0);
+			if(sw == 'y') {
+				System.out.println("프로그램 종료");
+				break;
+			}
+			else sc.nextLine();
+			
+		}
+		
+		
+	}
+}
+
+
+public class CountABC { // 모음 : a, e, i, o, u, w, y
+	int count1 = 0, count2 = 0; // 자음, 모음
+	
+	public void getCount() {
+		System.out.println("자음: " + count1);
+		System.out.println("모음: " + count2);
+	}
+	
+	public void Count(String str) {
+		String sub;
+		
+		for(int i=0; i<str.length(); i++) {
+			sub = str.substring(i, i+1);
+			if(sub.equals("a") || sub.equals("e") || sub.equals("i") ||
+			sub.equals("o") || sub.equals("u") || sub.equals("w") || sub.equals("y")
+			|| sub.equals("A") ||sub.equals("E") ||sub.equals("I") ||sub.equals("O") ||
+			sub.equals("U") ||sub.equals("W") || sub.equals("Y")) {
+				count2++;
+			}
+			else count1++;
+			
+		}
+		
+	}
+	
+	
+}
+
+
+10.사용자에게 받은 문자열을 역순으로 화면에 출력하는 프로그램을 작성하시오.
+
+입력: abcde
+출력: edcba
+
+import java.util.Scanner;
+
+public class Test01 {
+	public static void main(String args[]) {
+		Reverse rv = new Reverse();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("입력: ");
+		rv.reverse(sc.nextLine());
+		
+	}
+}
+
+public class Reverse {
+	
+	public void reverse(String str) {
+		char sub;
+		
+		System.out.print("출력: ");
+		for(int i=str.length()-1; i>=0; i--) {
+			sub = str.charAt(i);
+			System.out.print(sub);
+		}
+		
+	}
+}
+
+
+
+11. 2와 100 사이에 있는 모든 소수(prime number)를 찾는 프로그램을 작성하라. 
+(주어진 정수 k를 2부터 k-1까지의 숫자로 나누어서 나머지가 0인 것이 하나라도 있으면 소수가 아니다.
+
+public class PrimeNumber {
+	public void showPrime() {
+		int count = 0;
+		
+		for(int i=2; i<=100; i++) {
+			for(int j=2; j<=i-1; j++) {
+				if(i%j == 0) count++;
+				
+			}
+			
+			if(count == 0) {
+				System.out.print(i + ", ");
+			}
+			else count = 0;
+			
+		}
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

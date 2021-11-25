@@ -1,0 +1,42 @@
+package com.blue.jdbc_hr;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.border.*;
+import java.awt.event.*;
+
+
+public class BlueMainFrame extends JFrame {
+	JPanel p3;
+	JTabbedPane tp;
+	
+	MbPanel mbP = new MbPanel();
+	
+	public BlueMainFrame(){
+		super("::BlueMainFrame::");
+		Container cp = this.getContentPane();
+		
+		p3 = new JPanel();
+		p3.setBackground(Color.white);
+		cp.add(p3, BorderLayout.CENTER);
+		p3.setLayout(new BorderLayout());
+		
+		tp = new JTabbedPane();
+		p3.add(tp);
+		
+		tp.add(mbP, "회원관리");
+		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	
+	
+	
+	public static void main(String[] args) {
+		BlueMainFrame my = new BlueMainFrame();
+		my.setSize(770, 640);
+		my.setVisible(true);
+
+	}
+
+}
